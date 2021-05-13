@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../httpservice/http.service'
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,4 +29,12 @@ export class UserService {
     return this.http.Post('user/reset-password', data, token);
   }
 
+  createNote(data: any , id: any){
+    return this.http.Post('notes/addNotes',data,id);
+
+  }
+
+  getNoteList(id:any){
+    return this.http.Get('notes/getNotesList',id)
+  }
 }

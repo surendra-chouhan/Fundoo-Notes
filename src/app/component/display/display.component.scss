@@ -28,6 +28,7 @@
 .title{
     width: 550px;
     height: 50px;
+    border-style: hidden;
 }
 
 .description{
@@ -36,4 +37,14 @@
 
 .btn{
     align-items: bottom;
+}
+
+.newnote{
+    margin-top:20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width:150px;
+    min-height: 40px;
+    border: 1px solid grey;
+    border-radius:10px
 }

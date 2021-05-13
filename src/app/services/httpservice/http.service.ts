@@ -30,4 +30,15 @@ export class HttpService {
 
     return this.httpClient.post(this.BaseUrl + url, this.encode(data), options);
   }
+
+  Get(url: any,id: any){
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': id,
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+      })
+    }
+    return this.httpClient.get(this.BaseUrl+url, options)
+  }
 }

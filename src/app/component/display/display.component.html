@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="start center" class="content-area">
+<!-- <div fxLayout="row" fxLayoutAlign="start center" class="content-area">
     <div *ngIf='!show' (click)='show=!show' class="card1">
         <label for="" class="note" style="margin-top: 10px;">Take a note...</label>
     </div>
@@ -13,6 +13,53 @@
             </div>
         </div>
         <div class="card-footer">
-            <button class="btn btn-sm btn-link" (click)="show=!show">Close</button>
+            <button class="btn btn-sm btn-link" (click)="submit()">Close</button>
         </div>
     </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="start center" class="note-contents">
+    <form *ngFor='let card of cardArray' class="newnote">
+        <div class="newcard card-header">
+            {{card.title}}
+        </div>
+        <div class="newcardblock card-block">
+            <div class="card-text">
+                {{card.description}}
+            </div>
+        </div>
+    </form>
+</div> -->
+
+<div>
+    <div *ngIf='!show' (click)='show=!show' class="card1">
+        <label for="" class="note" style="margin-top: 50px;">Take a note</label>
+    </div>
+    <form clrForm [formGroup]="form" class="card2" *ngIf='show' class="form">
+        <div class="card-header">
+            <textarea placeholder="Title" formControlName="title" clrTextarea class="title" name="title" required></textarea>
+        </div>
+        <div class="card-block">
+            <div class="card-text">
+                <textarea placeholder="Description" formControlName="description" clrTextarea class="description" name="description"
+                    required></textarea>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-sm" (click)="submit()">Close</button>
+        </div>
+    </form>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="start center" class="note-contents">
+    <form *ngFor='let card of cardArray' class="newnote">
+        <div class="newcard card-header">
+            {{card.title}}
+        </div>
+        <div class="newcardblock card-block">
+            <div class="card-text">
+                {{card.description}}
+            </div>
+        </div>
+    </form>
+</div>
