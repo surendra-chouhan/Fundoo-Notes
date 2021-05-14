@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import '@cds/core/icon/register.js';
-import { ClarityIcons, lightbulbIcon,bellIcon,pencilIcon,archiveIcon,trashIcon,cogIcon,barsIcon } from '@cds/core/icon';
+import { ClarityIcons, lightbulbIcon,bellIcon,pencilIcon,archiveIcon,trashIcon,cogIcon,barsIcon,userIcon } from '@cds/core/icon';
+import { UserService } from 'src/app/services/userservice/user.service';
+import { Router } from '@angular/router';
+
 
 ClarityIcons.addIcons(lightbulbIcon);
 ClarityIcons.addIcons(bellIcon);
@@ -9,6 +12,7 @@ ClarityIcons.addIcons(archiveIcon);
 ClarityIcons.addIcons(trashIcon);
 ClarityIcons.addIcons(cogIcon);
 ClarityIcons.addIcons(barsIcon);
+ClarityIcons.addIcons(userIcon);
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +22,7 @@ ClarityIcons.addIcons(barsIcon);
 export class DashboardComponent implements OnInit {
   public collapsed = true;
   public show = true;
-  constructor() { }
+  constructor(private userService : UserService,private router : Router) { }
 
   ngOnInit(): void {
     this.collapsed = true;
@@ -30,5 +34,15 @@ export class DashboardComponent implements OnInit {
     }else{
       this.collapsed = true;
     }
+  }
+
+  logout(){
+    let id = localStorage.getItem('id');
+    this.userService.logout(id).subscribe((res) => {
+      console.log(res);
+      this.router.navigate(['login'])
+    }, (error) => {
+      console.log(error);
+    })
   }
 }
