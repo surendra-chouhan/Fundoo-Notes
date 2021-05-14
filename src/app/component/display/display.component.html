@@ -1,65 +1,49 @@
-<!-- <div fxLayout="row" fxLayoutAlign="start center" class="content-area">
-    <div *ngIf='!show' (click)='show=!show' class="card1">
-        <label for="" class="note" style="margin-top: 10px;">Take a note...</label>
-    </div>
-    <div class="card2" *ngIf='show' class="form">
-        <div class="card-header">
-            <textarea placeholder="Title" clrTextarea class="title" name="title" required></textarea>
-        </div>
-        <div class="card-block">
-            <div class="card-text">
-                <textarea placeholder="Description" clrTextarea class="description" name="description"
-                    required></textarea>
-            </div>
-        </div>
-        <div class="card-footer">
-            <button class="btn btn-sm btn-link" (click)="submit()">Close</button>
-        </div>
-    </div>
-</div>
-
-<div fxLayout="row" fxLayoutAlign="start center" class="note-contents">
-    <form *ngFor='let card of cardArray' class="newnote">
-        <div class="newcard card-header">
-            {{card.title}}
-        </div>
-        <div class="newcardblock card-block">
-            <div class="card-text">
-                {{card.description}}
-            </div>
-        </div>
-    </form>
-</div> -->
-
-<div>
+<div fxLayout="row" fxLayoutAlign="center start">
     <div *ngIf='!show' (click)='show=!show' class="card1">
         <label for="" class="note" style="margin-top: 50px;">Take a note</label>
     </div>
     <form clrForm [formGroup]="form" class="card2" *ngIf='show' class="form">
-        <div class="card-header">
-            <textarea placeholder="Title" formControlName="title" clrTextarea class="title" name="title" required></textarea>
+        <div>
+            <input type="text" placeholder="Title" formControlName="title" clrTextarea class="title" name="title"
+                required>
         </div>
-        <div class="card-block">
-            <div class="card-text">
-                <textarea placeholder="Description" formControlName="description" clrTextarea class="description" name="description"
-                    required></textarea>
-            </div>
-        </div>
-        <div class="card-footer">
+        <div>
+            <!-- <div class="card-text"> -->
+            <textarea placeholder="Description" formControlName="description" clrTextarea class="description"
+                name="description" required></textarea>
+            <!-- </div> -->
             <button class="btn btn-sm" (click)="submit()">Close</button>
         </div>
     </form>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="start center" class="note-contents">
-    <form *ngFor='let card of cardArray' class="newnote">
-        <div class="newcard card-header">
-            {{card.title}}
+<div fxLayout="row wrap" fxLayoutAlign="start center" class="note-contents">
+    <form (click)='openModal=!openModal' *ngFor='let card of cardArray' class="newnote">
+        <div>
+            <textarea (click)="getId(card)" name="" class="title-new" value={{card.title}} id="" cols="10" rows="10"></textarea>
         </div>
-        <div class="newcardblock card-block">
-            <div class="card-text">
-                {{card.description}}
+        <div>
+            <div>
+                <textarea name="" class="description-new" value={{card.description}} id="" cols="10" rows="10"></textarea>
             </div>
         </div>
+    </form>
+    <form clrForm [formGroup]="form">
+    <clr-modal [(clrModalOpen)]="openModal">
+        <h3 class="modal-title">
+            <textarea name="" formControlName="title" class="title-new" value={{detail.title}} id="" cols="10" rows="10"></textarea>
+        </h3>
+        <div class="modal-body">
+            <textarea name="" formControlName="description" class="description-new" id="" value={{detail.description}} cols="10" rows="10"></textarea>
+        </div>
+        <div>
+            <cds-icon shape="trash"></cds-icon>
+        </div>
+        <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-outline" (click)="openModal = false">Cancel</button> -->
+            <cds-icon size="lg" shape="trash" (click)="deleteNote()"></cds-icon>
+            <button type="button" class="btn btn-primary" (click)="updateNote()">Close</button>
+        </div>
+    </clr-modal>
     </form>
 </div>
