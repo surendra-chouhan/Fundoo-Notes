@@ -8,10 +8,6 @@ import { HttpService } from '../httpservice/http.service'
 })
 export class UserService {
 
-  constructor(private http: HttpService ) { 
-
-  }
-
   encode(data: any){
     const formBody = [];
     for(const property in data){
@@ -20,6 +16,10 @@ export class UserService {
       formBody.push(encodedKey + '=' + encodedValue);
     }
     return formBody.join('&');
+  }
+
+  constructor(private http: HttpService ) { 
+
   }
 
   loginService(data: any){
@@ -92,5 +92,16 @@ export class UserService {
       })
     }
     return this.http.Post('notes/trashNotes',data,options);
+  }
+
+  logout(id: any){
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': id,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      })
+    }
+    return this.http.Post('notes/logout', "", options);
   }
 }
