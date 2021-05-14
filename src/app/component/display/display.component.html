@@ -1,6 +1,6 @@
-<div fxLayout="row" fxLayoutAlign="center start">
+<div fxLayout="row" fxLayoutAlign="center start" class="main">
     <div *ngIf='!show' (click)='show=!show' class="card1">
-        <label for="" class="note" style="margin-top: 50px;">Take a note</label>
+        <label for="" class="note" >Take a note</label>
     </div>
     <form clrForm [formGroup]="form" class="card2" *ngIf='show' class="form">
         <div>
@@ -12,7 +12,15 @@
             <textarea placeholder="Description" formControlName="description" clrTextarea class="description"
                 name="description" required></textarea>
             <!-- </div> -->
-            <button class="btn btn-sm" (click)="submit()">Close</button>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <cds-icon shape="bell"></cds-icon>
+                <cds-icon shape="user"></cds-icon>
+                <cds-icon shape="color-palette"></cds-icon>
+                <cds-icon shape="image-gallery"></cds-icon>
+                <cds-icon shape="archive"></cds-icon>
+                <cds-icon shape="ellipsis-vertical"></cds-icon>
+                <button class="btn btn-sm" (click)="submit()">Close</button>
+        </div>
         </div>
     </form>
 </div>
@@ -20,27 +28,41 @@
 <div fxLayout="row wrap" fxLayoutAlign="start center" class="note-contents">
     <form (click)='openModal=!openModal' *ngFor='let card of cardArray' class="newnote">
         <div>
+            <div>
             <textarea (click)="getId(card)" name="" class="title-new" value={{card.title}} id="" cols="10" rows="10"></textarea>
+        </div>
         </div>
         <div>
             <div>
                 <textarea name="" class="description-new" value={{card.description}} id="" cols="10" rows="10"></textarea>
+                <div fxLayout="row" fxLayoutAlign="space-between center" class="icons">
+                    <cds-icon shape="bell"></cds-icon>
+                    <cds-icon shape="user"></cds-icon>
+                    <cds-icon shape="color-palette"></cds-icon>
+                    <cds-icon shape="image-gallery"></cds-icon>
+                    <cds-icon shape="archive"></cds-icon>
+                    <cds-icon shape="ellipsis-vertical"></cds-icon>
+                </div>
             </div>
         </div>
     </form>
     <form clrForm [formGroup]="form">
     <clr-modal [(clrModalOpen)]="openModal">
         <h3 class="modal-title">
-            <textarea name="" formControlName="title" class="title-new" value={{detail.title}} id="" cols="10" rows="10"></textarea>
+            <textarea name="" formControlName="title" class="title-new1" value={{detail.title}} id="" cols="10" rows="10"></textarea>
         </h3>
         <div class="modal-body">
-            <textarea name="" formControlName="description" class="description-new" id="" value={{detail.description}} cols="10" rows="10"></textarea>
-        </div>
-        <div>
-            <cds-icon shape="trash"></cds-icon>
+            <textarea name="" class="description-new1" formControlName="description" class="description-new1" id="" value={{detail.description}} cols="10" rows="10"></textarea>
         </div>
         <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-outline" (click)="openModal = false">Cancel</button> -->
+            <div fxLayout="row" fxLayoutAlign="start space-between" class="icon">
+                <cds-icon shape="bell" size="lg" class="bell"></cds-icon>
+                <cds-icon shape="user" size="lg" class="user"></cds-icon>
+                <cds-icon shape="color-palette" size="lg" class="clr"></cds-icon>
+                <cds-icon shape="image-gallery" size="lg" class="img"></cds-icon>
+                <cds-icon shape="archive" size="lg" class="arch"></cds-icon>
+                <cds-icon shape="ellipsis-vertical" size="lg" class="ell"></cds-icon>
+            </div>
             <cds-icon size="lg" shape="trash" (click)="deleteNote()"></cds-icon>
             <button type="button" class="btn btn-primary" (click)="updateNote()">Close</button>
         </div>

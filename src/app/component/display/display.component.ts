@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/userservice/user.service';
-import { ClarityIcons, trashIcon } from '@cds/core/icon';
+import { ClarityIcons,trashIcon,bellIcon,userIcon,colorPaletteIcon,imageGalleryIcon,archiveIcon,ellipsisVerticalIcon } from '@cds/core/icon';
 
 ClarityIcons.addIcons(trashIcon);
+ClarityIcons.addIcons(bellIcon);
+ClarityIcons.addIcons(userIcon);
+ClarityIcons.addIcons(colorPaletteIcon);
+ClarityIcons.addIcons(imageGalleryIcon);
+ClarityIcons.addIcons(archiveIcon);
+ClarityIcons.addIcons(ellipsisVerticalIcon);
 
 @Component({
   selector: 'app-display',
