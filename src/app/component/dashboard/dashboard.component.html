@@ -10,7 +10,7 @@
       </div>
       <form class="search">
         <label for="search_input">
-          <input id="search_input" type="text" placeholder="Search for keywords..." />
+          <input id="search_input" type="text" placeholder="Search for keywords..." style="background: whitesmoke; border-radius: 10px;"/>
         </label>
       </form>
       <div class="header-actions">
@@ -21,7 +21,7 @@
     </header>
   </div>
   <div class="content-container">
-    <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed" style="background: white;">
       <a clrVerticalNavLink>
         <cds-icon clrVerticalNavIcon shape="lightbulb"></cds-icon>
         Notes
@@ -43,7 +43,7 @@
         Trash
       </a>
     </clr-vertical-nav>
-    <div fxLayout="row" fxLayoutAlign="center" class="content-area">
+    <div class="content-area">
       <app-display></app-display>
     </div>
   </div>
