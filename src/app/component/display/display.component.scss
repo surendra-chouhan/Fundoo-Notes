@@ -1,11 +1,10 @@
 .card1{
     width: 600px;
-    min-height:20px;
-    border: 1px solid grey;
+    height: 50px;
+    border: 2px solid rgb(247, 243, 243);
     border-radius: 10px;
     box-shadow: "inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);";
     background-color: white;
-    justify-content: center;
     outline: none;
     padding: 15px;
 }
@@ -14,18 +13,18 @@
     width: 600px;
     min-height: 150px;
     box-shadow: "inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);";
-   
 }
 
-.form{
-    // border: 1px solid gray;
-    // border-radius: 10px;
-    width: 600px;
-    min-height: 300px;
-}
+// .form{
+//     border: 1px solid gray;
+//     border-radius: 10px;
+//     width: 600px;
+//     min-height: 200px;
+//     border: 2px solid rgb(247, 243, 243);
+//     border-radius: 10px;
+// }
 
 .note{
-    display: initial;
     padding: 12px 10px;
 }
 
@@ -41,11 +40,16 @@
     width: 100%;
     border-style: hidden;
     outline: none;
+    resize: none;
 }
 
 .btn{
     align-items: bottom;
+}
 
+input{
+    width: 700px;
+    height: 30px;
 }
 
 .newnote{
@@ -60,11 +64,6 @@
     padding: 12px 12px;
 }
 
-// .note-contents{
-//     display: flex;
-//     flex-wrap: wrap;
-// }
-
 .icon{
     margin-right: 140px;
     .bell, .user , .clr , .img, .arch{
@@ -77,11 +76,15 @@
     border: none;
     margin-bottom: -6px;
     font-weight: 600;
+    resize: none;
+    width: 160px;
 }
 
 .description-new{
     height: 80px;
     border: none;
+    resize: none;
+    width: 160px;
 }
 
 .title-new1{
@@ -89,18 +92,46 @@
     margin-bottom: -30px;
     border: none;
     width: 500px;
+    resize: none;
 }
 
-.icons{
+.icons {
     margin-bottom: 8px;
+}
+
+.newnote cds-icon{
+    visibility: hidden;
+}
+
+.newnote:hover cds-icon{
+    visibility: visible;
 }
 
 .description-new1{
     height: 80px;
     border: none;
-    width: 500px
+    width: 500px;
+    resize: none;
 }
 
 .newnote1{
     border: none;
+}
+
+@media screen and (max-width: 800px) {
+    .card1{
+        width: 400px;
+    }    
+}
+
+@media screen and (max-width: 600px) {
+    .card1{
+        width: 300px;
+    }    
+}
+
+@media screen and (max-width: 400px) {
+    .card1{
+        width: 200px;
+    }    
 }

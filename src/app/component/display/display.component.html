@@ -1,17 +1,15 @@
-<div fxLayout="row" fxLayoutAlign="center start" class="main">
-    <div *ngIf='!show' (click)='show=!show' class="card1">
+<div fxLayout="row" fxLayoutAlign="center start">
+    <div *ngIf='!show' (click)='show=!show' class="card1" fxLayout="row" fxLayoutAlign="start center">
         <label for="" class="note" >Take a note</label>
     </div>
-    <form clrForm [formGroup]="form" class="card2" *ngIf='show' class="form">
+    <form clrForm [formGroup]="form" class="card2" *ngIf='show'>
         <div>
             <input type="text" placeholder="Title" formControlName="title" clrTextarea class="title" name="title"
                 required>
         </div>
         <div>
-            <!-- <div class="card-text"> -->
             <textarea placeholder="Description" formControlName="description" clrTextarea class="description"
                 name="description" required></textarea>
-            <!-- </div> -->
             <div fxLayout="row" fxLayoutAlign="space-between center">
                 <cds-icon shape="bell"></cds-icon>
                 <cds-icon shape="user"></cds-icon>
@@ -25,7 +23,7 @@
     </form>
 </div>
 
-<div fxLayout="row wrap" fxLayoutAlign="start center" class="note-contents">
+<div fxLayout="row wrap" fxLayoutAlign="start center" class="note-contents" >
     <form (click)='openModal=!openModal' *ngFor='let card of cardArray' class="newnote">
         <div>
             <div>
