@@ -5,17 +5,20 @@
     transform: translate(-50%,-50%);
     border: 1px solid #9c9c9c;
     border-radius: 10px;
-    width: 400px;
+    width: 420px;
     height: 500px;
-    padding: 25px;
-    background: #fff;
     padding: 40px;
+    background: #fff;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .email{
     input{
         display: block;
-        width: 100%;
+        width: 75%;
     }
 }
 
@@ -27,7 +30,7 @@
     .email{
         input{
             display: block;
-            width: 100%;
+            width: 70%;
         }
     }
 
